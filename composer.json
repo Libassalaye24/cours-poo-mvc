@@ -1,0 +1,19 @@
+{
+    "name": "app/cours",
+    "autoload": {
+        "psr-4": {
+            "App\\": "Src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "libasse",
+            "email": "libassalaye24@gmail.com"
+        }
+    ],
+    "require": {
+        "doctrine/collections": "^1.6",
+        "respect/validation": "^2.2",
+        "codeguy/upload": "^1.3"
+    }
+}
