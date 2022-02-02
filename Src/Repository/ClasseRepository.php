@@ -5,5 +5,5 @@ use App\Core\Orm\AbstractRepository;
 
 class ClassRepository extends AbstractRepository
   {
-    
+      
   }

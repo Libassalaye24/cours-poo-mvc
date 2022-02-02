@@ -1,8 +1,9 @@
 <?php
   namespace App\Repository;
 
+use App\Core\Orm\AbstractRepository;
 
-  class EtudiantRepository
+class EtudiantRepository extends AbstractRepository
   {
     private string $role="ROLE_ETUDIANT";
 

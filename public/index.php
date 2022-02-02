@@ -8,7 +8,7 @@ use App\Entity\Personne;
 require_once './../vendor/autoload.php';
 
    // require_once '/home/libasse/Bureau/CoursPhpPOO/cours-poo-mvc/src/Core/DataBase.php';
-   
+   $db=new Database;
     $p=new Personne;
     $p->setId(1)
       ->setNomComplet('Libasse Mbaye');
