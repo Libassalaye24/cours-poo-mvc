@@ -9,7 +9,10 @@ abstract class AbstractObject
     protected string $primaryKey;
     protected Database $database;
     
-
+    public function __construct()
+    {
+        $this->database=new Database;
+    }
     /**
      * Get the value of tableName
      *

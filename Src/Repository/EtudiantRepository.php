@@ -1,16 +1,14 @@
 <?php
   namespace App\Repository;
 
-use App\Core\Orm\AbstractRepository;
 
-class EtudiantRepository extends AbstractRepository
+class EtudiantRepository extends PersonneRepository
   {
-    private string $role="ROLE_ETUDIANT";
 
     public function __construct()
     {
-      $this->tableName="user";
-      $this->primaryKey="id";
+      $this->role="ROLE_ETU";
+      parent::__construct();
     }
     
   }

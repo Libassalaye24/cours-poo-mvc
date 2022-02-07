@@ -3,30 +3,30 @@
  
   class Session
   {
-       public function open_session(){
+       public static function start():void{
             if (session_status()==PHP_SESSION_NONE) {
                 session_start();
             }
         }
-       public function destroy_session() {
+       public static function destroySession(){
             session_destroy();
         }
-       public function KeyExist()
+       public static function KeyExist($key):bool
        {
-
+          return isset($_SESSION[$key]);
        }
-       public function getSession()
+       public static function getSession(string $key):bool
        {
-
+        return Session::KeyExist($key)?$_SESSION[$key]:false;
        }
-       public function removeKey()
+       public static function removeKey($key):void
        {
-
+           unset($_SESSION[$key]);
        }
-       public function setSession()
+       public static function setSession(string $key,$data):void
        {
-
-       }
+          $_SESSION[$key] = $data;
+       }  
 
   }
 

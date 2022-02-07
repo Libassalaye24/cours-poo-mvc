@@ -5,18 +5,19 @@ use App\Core\Orm\AbstractRepository;
 
 class PersonneRepository extends AbstractRepository
   {
-    private string $role="ROLE_PERSONNE";
+    private string $role;
 
     public function __construct()
     {
+      parent::__construct();
       $this->tableName="user";
-      $this->primaryKey="id";
+      $this->primaryKey="idUser";
     }
    
     public function findAll(): array
     {
-        $sql="select * from $this->tableName where role=$this->role";
-        return $this->database->executeSelect($sql);
+        $sql="select * from $this->tableName where role like ?";
+        return $this->database->executeSelect($sql,[$this->role]);
     }
     
   }

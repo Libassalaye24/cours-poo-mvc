@@ -4,15 +4,25 @@ use App\Core\Orm\Database;
 use App\Entity\Etudiant;
 use App\Entity\Inscription;
 use App\Entity\Personne;
+use App\Manager\PersonneManager;
+use App\Repository\PersonneRepository;
 
 require_once './../vendor/autoload.php';
 
    // require_once '/home/libasse/Bureau/CoursPhpPOO/cours-poo-mvc/src/Core/DataBase.php';
-   $db=new Database;
+ /*   $db=new Database;
     $p=new Personne;
     $p->setId(1)
-      ->setNomComplet('Libasse Mbaye');
-     
+      ->setNomComplet('Libasse Mbaye'); */
+     $manager=new PersonneRepository();
+     $etudiant=new Etudiant();
+     $etudiant->setNomComplet("Libasse Lahi")
+            ->setLogin("libassalaye24@gmail.com")
+            ->setPassword("Libasse2001");
+     $etudiant->setTuteur("Issa Lahi");
+     $etudiant->setMatricule("01A");
+
+
         
 ?>
 <!doctype html>
@@ -29,7 +39,7 @@ require_once './../vendor/autoload.php';
   </head>
   <body>
       <div class="h1">
-         <?=$p->affiche();?>
+        
       </div>
      
     <!-- Bootstrap JavaScript Libraries -->

@@ -1,8 +1,12 @@
 <?php
 namespace App\Core\Orm;
 
-abstract class AbstractRepository extends AbstractObject implements RepositoryInterface
+class AbstractRepository extends AbstractObject implements RepositoryInterface
 {
+    public function __construct()
+    {
+        parent::__construct();
+    }
     public function findAll(): array
     {
         $sql="select * from $this->tableName";
@@ -10,7 +14,13 @@ abstract class AbstractRepository extends AbstractObject implements RepositoryIn
     }
     public function findById(int $id): array
     {
-        $sql="select * from $this->tableName where $this->primaryKey=$id";
-        return $this->database->executeSelect($sql);
+        $sql="select * from $this->tableName where $this->primaryKey=?";
+        return $this->database->executeSelect($sql,[$id]);
     }
+   public function findBy(string $sql,array $data,$single=false):array
+    {
+        return $this->database->executeSelect($sql,$data,$single);
+
+    }
+
 }

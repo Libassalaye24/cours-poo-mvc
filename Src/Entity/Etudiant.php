@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Etudiant extends Personne
   {
       private string $tuteur;
+      private string $matricule;
       private DossierScolaire $dossierScolaire;
       //propriete navigationnelle ManyToOne
       //collection
@@ -85,4 +86,28 @@ class Etudiant extends Personne
         return parent::affiche().' '.$this->tuteur;
       }
 
+
+      /**
+       * Get the value of matricule
+       *
+       * @return  string
+       */
+      public function getMatricule()
+      {
+            return $this->matricule;
+      }
+
+      /**
+       * Set the value of matricule
+       *
+       * @param  string  $matricule
+       *
+       * @return  self
+       */
+      public function setMatricule(string $matricule)
+      {
+            $this->matricule = $matricule;
+
+            return $this;
+      }
   }

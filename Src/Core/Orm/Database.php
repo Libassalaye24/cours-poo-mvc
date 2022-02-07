@@ -5,13 +5,13 @@ use PDO;
 use PDOException;
 //use App\config\Constantes;
 class Database{
-    private PDO $pdo;
-    //public int|float $x;
+    private PDO|null $pdo=null;
+   ///private int | float $x;
    
    private const HOST_DB='localhost';
    private const USER_DB='root';
    private const PASSWORD_DB='Libasse';
-   private const DB_CHAINE_CONNECTION='mysql:dbname=cours_poo_mvc;host='.self::HOST_DB;
+   private const DB_CHAINE_CONNECTION="mysql:host=localhost;dbname=cours_poo_mvc";
 
    public function __construct()
    {
@@ -21,13 +21,12 @@ class Database{
    public function openConnexion()
     {
         try{   
-          //  if ($this->pdo==null) {
+           if ($this->pdo==null) {
                $this->pdo = new PDO(self::DB_CHAINE_CONNECTION, self::USER_DB, self::PASSWORD_DB); 
                $this->pdo->setAttribute(PDO::ATTR_CASE,PDO::CASE_LOWER);
                $this->pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
                $this->pdo->setAttribute(PDO::MYSQL_ATTR_INIT_COMMAND,"SET NAMES 'utf8'");
-           // }
-           die ("connexion etabli");
+            }
         }catch (PDOexception $e){
              die ("Erreur connexion failed: ".$e->getMessage());
         }

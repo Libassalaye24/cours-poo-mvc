@@ -9,5 +9,6 @@ class InscriptionRepository extends AbstractRepository
     {
       $this->tableName="inscription";
       $this->primaryKey="idInscription";
+      parent::__construct();
     }
 }

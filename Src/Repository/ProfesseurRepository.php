@@ -1,9 +1,12 @@
 <?php
   namespace App\Repository;
 
-use App\Core\Orm\AbstractRepository;
 
-class ProfesseurRepository extends AbstractRepository
+class ProfesseurRepository extends PersonneRepository
 {
-  
+  public function __construct()
+  {
+    $this->role="ROLE_PR";
+    parent::__construct();
+  }
 }
